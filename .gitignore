@@ -18,9 +18,9 @@ dist/
 
 # Data (nie ładujemy pełbych danych, tylko małe próbki danych)
 data/*
-asi-airbnb/data/01_raw/
-asi-airbnb/data/02_interim/
-data/03_processed/
+!data/01_raw/
+!data/02_interim/
+!data/03_processed/
 data/**/.gitkeep
 data/**/README.md
 !asi-airbnb/data/01_raw/sample.csv
