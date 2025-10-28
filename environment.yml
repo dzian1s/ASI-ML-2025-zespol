@@ -17,3 +17,7 @@ dependencies:
       - black
       - pytest
       - wandb
+      - kedro
+      - kedro-datasets[pandas]
+      - pyarrow
+      - pandera
