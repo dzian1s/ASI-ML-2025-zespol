@@ -6,6 +6,7 @@ __pycache__/
 *.egg-info/
 .build/
 dist/
+../.idea
 
 # Jupyter
 .ipynb_checkpoints/
@@ -17,13 +18,13 @@ dist/
 
 # Data (nie ładujemy pełbych danych, tylko małe próbki danych)
 data/*
-!data/01_raw/
-!data/02_interim/
+!asi-airbnb/data/01_raw/
+!asi-airbnb/data/02_interim/
 !data/03_processed/
 data/**/.gitkeep
 data/**/README.md
-!data/01_raw/sample.csv
-data/01_raw/AB_NYC_2019.csv
+!asi-airbnb/data/01_raw/sample.csv
+asi-airbnb/data/01_raw/AB_NYC_2019.csv
 
 # jeśli ktoś pracuje na Macu
 .DS_Store
