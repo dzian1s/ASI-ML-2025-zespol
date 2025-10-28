@@ -4,17 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 requires-python = ">=3.9"
-name = "asi_airbnb"
+name = "ASI-ML-2025-zespol"
 readme = "README.md"
 dynamic = [ "version",]
 dependencies = [ "ipython>=8.10", "jupyterlab>=3.0", "notebook", "kedro~=1.0.0",]
 
 [project.scripts]
-asi-airbnb = "asi_airbnb.__main__:main"
+asi-airbnb = "ASI-ML-2025-zespol.__main__:main"
 
 [tool.kedro]
-package_name = "asi_airbnb"
-project_name = "asi-airbnb"
+package_name = "ASI-ML-2025-zespol"
+project_name = "ASI-ML-2025-zespol"
 kedro_init_version = "1.0.0"
 tools = "['None']"
 example_pipeline = "False"
@@ -23,7 +23,7 @@ source_dir = "src"
 [project.entry-points."kedro.hooks"]
 
 [tool.setuptools.dynamic.version]
-attr = "asi_airbnb.__version__"
+attr = "ASI-ML-2025-zespol.__version__"
 
 [tool.setuptools.packages.find]
 where = [ "src",]
