@@ -32,14 +32,14 @@ def basic_clean(data):
     return data_dropped
 
 
-def train_test_splitting(data):
+def train_test_splitting(data, test_size, random_state):
     X = data.drop(columns=["price"])
     y = data["price"].to_frame(name="target")
-    return train_test_split(X, y, test_size=0.2, random_state=42)
+    return train_test_split(X, y, test_size=test_size, random_state=random_state)
 
 
-def train_baseline(X_train, y_train):
-    model = RandomForestRegressor(n_estimators=100, random_state=42)
+def train_baseline(X_train, y_train, n_estimators, random_state):
+    model = RandomForestRegressor(n_estimators=n_estimators, random_state=random_state)
     model.fit(X_train, y_train)
     return model
 
