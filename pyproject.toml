@@ -1,16 +1,21 @@
 [build-system]
-requires = [ "setuptools",]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
 requires-python = ">=3.9"
-name = "ASI-ML-2025-zespol"
+name = "asi-ml-2025-zespol"
 readme = "README.md"
-dynamic = [ "version",]
-dependencies = [ "ipython>=8.10", "jupyterlab>=3.0", "notebook", "kedro~=1.0.0",]
+dynamic = ["version"]
+dependencies = [
+    "ipython>=8.10",
+    "jupyterlab>=3.0",
+    "notebook",
+    "kedro~=1.0.0",
+]
 
 [project.scripts]
-asi-airbnb = "ASI-ML-2025-zespol.main:main"
+asi_airbnb = "asi_ml_2025_zespol.main:main"
 
 [tool.kedro]
 package_name = "asi_ml_2025_zespol"
@@ -23,10 +28,10 @@ source_dir = "src"
 [project.entry-points."kedro.hooks"]
 
 [tool.setuptools.dynamic.version]
-attr = "ASI-ML-2025-zespol.version"
+attr = "asi_ml_2025_zespol.version"
 
 [tool.setuptools.packages.find]
-where = [ "src",]
+where = ["src"]
 namespaces = false
 
 [tool.kedro_telemetry]

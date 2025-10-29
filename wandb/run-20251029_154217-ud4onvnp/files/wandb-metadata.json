@@ -1,0 +1,41 @@
+{
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "CPython 3.11.14",
+  "startedAt": "2025-10-29T14:42:17.212726Z",
+  "args": [
+    "run"
+  ],
+  "program": "-m __main__",
+  "git": {
+    "remote": "https://github.com/dzian1s/ASI-ML-2025-zespol.git",
+    "commit": "c026d1210b5e33b4af22061e1a91903e6ec69cf2"
+  },
+  "email": "s27335@pjwstk.edu.pl",
+  "root": "C:\\Users\\47sok\\ASI-ML-2025-zespol",
+  "host": "LAPTOP-9FCQNHQ8",
+  "executable": "D:\\anaconda3\\envs\\asi-ml\\python.exe",
+  "cpu_count": 4,
+  "cpu_count_logical": 8,
+  "gpu": "NVIDIA GeForce GTX 1050 with Max-Q Design",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "254996189184",
+      "used": "237006856192"
+    }
+  },
+  "memory": {
+    "total": "8395153408"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce GTX 1050 with Max-Q Design",
+      "memoryTotal": "2147483648",
+      "cudaCores": 640,
+      "architecture": "Pascal",
+      "uuid": "GPU-1a4aaf89-0522-efa6-1414-8cf3be841ae9"
+    }
+  ],
+  "cudaVersion": "13.0",
+  "writerId": "p8nz6xmzpvaqt61wmurk7orwsgmr36a1"
+}

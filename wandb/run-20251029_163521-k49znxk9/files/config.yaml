@@ -1,0 +1,59 @@
+_wandb:
+    value:
+        cli_version: 0.22.2
+        e:
+            c42dzn299o2gvtze13q73o2lb4rc4ord:
+                args:
+                    - run
+                cpu_count: 4
+                cpu_count_logical: 8
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "254996189184"
+                        used: "236989964288"
+                email: s27335@pjwstk.edu.pl
+                executable: D:\anaconda3\envs\asi-ml\python.exe
+                git:
+                    commit: c026d1210b5e33b4af22061e1a91903e6ec69cf2
+                    remote: https://github.com/dzian1s/ASI-ML-2025-zespol.git
+                gpu: NVIDIA GeForce GTX 1050 with Max-Q Design
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Pascal
+                      cudaCores: 640
+                      memoryTotal: "2147483648"
+                      name: NVIDIA GeForce GTX 1050 with Max-Q Design
+                      uuid: GPU-1a4aaf89-0522-efa6-1414-8cf3be841ae9
+                host: LAPTOP-9FCQNHQ8
+                memory:
+                    total: "8395153408"
+                os: Windows-10-10.0.26200-SP0
+                program: -m __main__
+                python: CPython 3.11.14
+                root: C:\Users\47sok\ASI-ML-2025-zespol
+                startedAt: "2025-10-29T15:35:21.783957Z"
+                writerId: c42dzn299o2gvtze13q73o2lb4rc4ord
+        m: []
+        python_version: 3.11.14
+        t:
+            "1":
+                - 5
+                - 53
+            "2":
+                - 5
+                - 53
+            "3":
+                - 16
+            "4": 3.11.14
+            "5": 0.22.2
+            "8":
+                - 3
+            "10":
+                - 20
+            "12": 0.22.2
+            "13": windows-amd64
+n_estimators:
+    value: 100
+random_state:
+    value: 42
