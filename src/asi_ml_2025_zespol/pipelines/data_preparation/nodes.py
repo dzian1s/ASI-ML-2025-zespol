@@ -4,7 +4,9 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-
+import wandb
+import yaml
+from pathlib import Path
 
 def load_raw():
     return pd.read_csv("data/01_raw/airbnb_sample.csv")
@@ -39,8 +41,27 @@ def train_test_splitting(data, test_size, random_state):
 
 
 def train_baseline(X_train, y_train, n_estimators, random_state):
+
+    credentials_path = Path("conf/local/credentials.yml")
+    with open(credentials_path, "r") as f:
+        creds = yaml.safe_load(f)
+    wandb_creds = creds["wandb"]["api_key"]
+
+    wandb.login(key=wandb_creds)
+    wandb.init(
+        project="asi-ml-2025-zespol",
+        job_type="train",
+        reinit=True,
+        config={"n_estimators": n_estimators, "random_state": random_state},
+    )
+
     model = RandomForestRegressor(n_estimators=n_estimators, random_state=random_state)
     model.fit(X_train, y_train)
+
+    y_pred = model.predict(X_train)
+    rmse = np.sqrt(mean_squared_error(y_train, y_pred))
+
+    wandb.log({"train_rmse": rmse})
     return model
 
 

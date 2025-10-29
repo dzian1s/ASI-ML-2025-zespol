@@ -11,3 +11,11 @@ https://creativecommons.org/publicdomain/zero/1.0/
 
 ## Metryka: 
 RMSE(Root Mean Square Error)
+
+## Weights&Biases
+
+## Projekt
+https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-2025-zespol
+
+### Run
+https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-2025-zespol/runs/5y247p9v?nw=nwusers27335

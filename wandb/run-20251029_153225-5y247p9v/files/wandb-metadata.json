@@ -1,0 +1,29 @@
+{
+  "os": "Windows-10-10.0.26100-SP0",
+  "python": "CPython 3.11.14",
+  "startedAt": "2025-10-29T14:32:25.716712Z",
+  "args": [
+    "run"
+  ],
+  "program": "-m __main__",
+  "git": {
+    "remote": "https://github.com/dzian1s/ASI-ML-2025-zespol.git",
+    "commit": "3ebc420fc53eac49d990e5e51da6e921b5b51d0e"
+  },
+  "email": "s27335@pjwstk.edu.pl",
+  "root": "C:\\Users\\bart_\\OneDrive\\Pulpit\\ASI\\ASI-ML-2025-zespol",
+  "host": "Bartek",
+  "executable": "C:\\Users\\bart_\\anaconda3\\envs\\asi-ml\\python.exe",
+  "cpu_count": 14,
+  "cpu_count_logical": 20,
+  "disk": {
+    "/": {
+      "total": "999286632448",
+      "used": "886508900352"
+    }
+  },
+  "memory": {
+    "total": "34104049664"
+  },
+  "writerId": "g9hb4ens0md1d9yl74dlquzwvx9fbpfc"
+}
