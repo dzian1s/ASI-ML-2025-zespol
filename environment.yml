@@ -18,6 +18,8 @@ dependencies:
       - pytest
       - wandb
       - kedro
-      - kedro-datasets[pandas]
+      - kedro-datasets-2.1.0[pandas]
+      - kedro-datasets-2.1.0[pickle]
+      - kedro-datasets-2.1.0[tracking]
       - pyarrow
-      - pandera
+

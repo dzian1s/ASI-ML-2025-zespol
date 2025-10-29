@@ -2,3 +2,35 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+raw_data:
+  type: kedro_datasets.pandas.csv_dataset.CSVDataset
+  filepath: data/01_raw/airbnb_sample.csv
+
+clean_data:
+  type: kedro_datasets.pandas.parquet_dataset.ParquetDataset
+  filepath: data/02_interim/clean.parquet
+
+X_train:
+  type: kedro_datasets.pandas.parquet_dataset.ParquetDataset
+  filepath: data/03_processed/X_train.parquet
+
+X_test:
+  type: kedro_datasets.pandas.parquet_dataset.ParquetDataset
+  filepath: data/03_processed/X_test.parquet
+
+y_train:
+  type: kedro_datasets.pandas.parquet_dataset.ParquetDataset
+  filepath: data/03_processed/y_train.parquet
+
+y_test:
+  type: kedro_datasets.pandas.parquet_dataset.ParquetDataset
+  filepath: data/03_processed/y_test.parquet
+
+model_baseline:
+  type: kedro_datasets.pickle.pickle_dataset.PickleDataset
+  filepath: data/06_models/model_baseline.pkl
+
+metrics_baseline:
+  type: kedro_datasets.tracking.metrics_dataset.MetricsDataset
+  filepath: data/09_tracking/metrics_baseline.json

@@ -10,10 +10,10 @@ dynamic = [ "version",]
 dependencies = [ "ipython>=8.10", "jupyterlab>=3.0", "notebook", "kedro~=1.0.0",]
 
 [project.scripts]
-asi-airbnb = "ASI-ML-2025-zespol.__main__:main"
+asi-airbnb = "ASI-ML-2025-zespol.main:main"
 
 [tool.kedro]
-package_name = "ASI-ML-2025-zespol"
+package_name = "asi_ml_2025_zespol"
 project_name = "ASI-ML-2025-zespol"
 kedro_init_version = "1.0.0"
 tools = "['None']"
@@ -23,7 +23,7 @@ source_dir = "src"
 [project.entry-points."kedro.hooks"]
 
 [tool.setuptools.dynamic.version]
-attr = "ASI-ML-2025-zespol.__version__"
+attr = "ASI-ML-2025-zespol.version"
 
 [tool.setuptools.packages.find]
 where = [ "src",]

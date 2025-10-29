@@ -1,0 +1,6 @@
+test_size: 0.2
+random_state: 42
+
+model_opts:
+  n_estimators: 100
+  random_state: 42
