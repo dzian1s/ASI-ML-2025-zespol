@@ -25,6 +25,7 @@ data/**/.gitkeep
 data/**/README.md
 !asi-airbnb/data/01_raw/sample.csv
 asi-airbnb/data/01_raw/AB_NYC_2019.csv
+wandb/
 
 # jeśli ktoś pracuje na Macu
 .DS_Store

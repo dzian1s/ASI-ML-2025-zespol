@@ -8,6 +8,7 @@ import wandb
 import yaml
 from pathlib import Path
 
+
 def load_raw():
     return pd.read_csv("data/01_raw/airbnb_sample.csv")
 
@@ -41,7 +42,6 @@ def train_test_splitting(data, test_size, random_state):
 
 
 def train_baseline(X_train, y_train, n_estimators, random_state):
-
     credentials_path = Path("conf/local/credentials.yml")
     with open(credentials_path, "r") as f:
         creds = yaml.safe_load(f)
@@ -67,4 +67,4 @@ def train_baseline(X_train, y_train, n_estimators, random_state):
 
 def evaluate(model, X_test, y_test):
     y_pred = model.predict(X_test)
-    return {"RMSE" :np.sqrt(mean_squared_error(y_test, y_pred))}
+    return {"RMSE": np.sqrt(mean_squared_error(y_test, y_pred))}

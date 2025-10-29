@@ -1,0 +1,11 @@
+{"time":"2025-10-29T16:52:02.8818114+01:00","level":"INFO","msg":"stream: starting","core version":"0.22.2"}
+{"time":"2025-10-29T16:52:03.492546+01:00","level":"INFO","msg":"stream: created new stream","id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:03.4941879+01:00","level":"INFO","msg":"handler: started","stream_id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:03.4947396+01:00","level":"INFO","msg":"stream: started","id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:03.4952479+01:00","level":"INFO","msg":"writer: started","stream_id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:03.4957779+01:00","level":"INFO","msg":"sender: started","stream_id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:05.6709013+01:00","level":"INFO","msg":"stream: closing","id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:06.6572154+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-10-29T16:52:06.9020438+01:00","level":"INFO","msg":"handler: closed","stream_id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:06.9032146+01:00","level":"INFO","msg":"sender: closed","stream_id":"mwfyzppa"}
+{"time":"2025-10-29T16:52:06.9032146+01:00","level":"INFO","msg":"stream: closed","id":"mwfyzppa"}
