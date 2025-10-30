@@ -18,7 +18,7 @@ RMSE(Root Mean Square Error)
 https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-2025-zespol
 
 ### Run
-https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-2025-zespol/runs/5y247p9v?nw=nwusers27335
+https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-2025-zespol/runs/sqwk04tx
 
 ### Kedro Quickstart
 Aby uruchomić projekt:
