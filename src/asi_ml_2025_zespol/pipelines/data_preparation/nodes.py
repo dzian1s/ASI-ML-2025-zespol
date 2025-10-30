@@ -56,12 +56,15 @@ def train_baseline(X_train, y_train, n_estimators, random_state):
     )
 
     model = RandomForestRegressor(n_estimators=n_estimators, random_state=random_state)
-    model.fit(X_train, y_train)
+    for i in range(n_estimators):
+        model.n_estimators = i + 1
+        model.fit(X_train, y_train)
 
-    y_pred = model.predict(X_train)
-    rmse = np.sqrt(mean_squared_error(y_train, y_pred))
+        y_pred = model.predict(X_train)
+        rmse = np.sqrt(mean_squared_error(y_train, y_pred))
 
-    wandb.log({"train_rmse": rmse})
+        wandb.log({"train_rmse": rmse})
+
     return model
 
 
