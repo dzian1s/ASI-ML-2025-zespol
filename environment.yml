@@ -18,9 +18,7 @@ dependencies:
       - pytest
       - wandb
       - kedro
-      - kedro-datasets-2.1.0[pandas]
-      - kedro-datasets-2.1.0[pickle]
-      - kedro-datasets-2.1.0[tracking]
+      - kedro-datasets[pandas,pickle,tracking]==2.1.0
       - pyarrow
       - pytest
 
