@@ -28,7 +28,7 @@ kedro run
 
 ### Wymagania
 
-- Python 3.9+
+- Python 3.11
 - Kedro 1.0.0
 - Kedro-Datasets 2.1.0
 - scikit-learn, pandas, numpy
