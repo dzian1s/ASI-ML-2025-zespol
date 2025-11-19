@@ -28,6 +28,34 @@ def create_pipeline(**kwargs) -> Pipeline:
                 name="train_test_split",
             ),
             node(
+                func=train_autogluon,
+                inputs=["X_train", "y_train", "params:autogluon"],
+                outputs="ag_model",
+                name="train_autogluon_node",
+            ),
+            node(
+                func=evaluate_autogluon,
+                inputs=["ag_model", "X_test", "y_test"],
+                outputs="ag_metrics",
+                name="evaluate_autogluon_node",
+            ),
+            node(
+                func=log_autogluon_artifact,
+                inputs="ag_model",
+                outputs=None,
+                name="log_ag_artifact",
+            ),
+            node(
+                func=save_best_model,
+                inputs="ag_model",
+                outputs="saved_ag_model_path",
+                name="save_best_model_node",
+            ),
+        ]
+    )
+
+
+""" node(
                 func=train_baseline,
                 inputs=[
                     "X_train",
@@ -43,6 +71,4 @@ def create_pipeline(**kwargs) -> Pipeline:
                 inputs=["model_baseline", "X_test", "y_test"],
                 outputs="metrics_baseline",
                 name="evaluate",
-            ),
-        ]
-    )
+            ),"""
