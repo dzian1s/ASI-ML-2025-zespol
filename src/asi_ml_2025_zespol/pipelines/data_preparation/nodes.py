@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
@@ -7,6 +8,9 @@ from sklearn.model_selection import train_test_split
 import wandb
 import yaml
 from pathlib import Path
+import logging
+from autogluon.tabular import TabularPredictor
+from autogluon.common.utils.utils import set_seed
 
 
 def load_raw():
@@ -71,3 +75,69 @@ def train_baseline(X_train, y_train, n_estimators, random_state):
 def evaluate(model, X_test, y_test):
     y_pred = model.predict(X_test)
     return {"RMSE": np.sqrt(mean_squared_error(y_test, y_pred))}
+
+
+logger = logging.getLogger(__name__)
+
+
+def train_autogluon(X_train, y_train, params):
+    set_seed(params["random_seed"])
+
+    run = wandb.init(
+        project="asi-ml-2025-zespol", job_type="ag-train", reinit=True, config=params
+    )
+
+    train_data = X_train.copy()
+    train_data[params["label"]] = y_train
+
+    start = time.time()
+
+    predictor = TabularPredictor(
+        label=params["label"],
+        problem_type=params["problem_type"],
+        eval_metric=params["eval_metric"],
+    ).fit(
+        train_data=train_data,
+        presets=params["presets"],
+        time_limit=params["time_limit"],
+    )
+
+    train_time = time.time() - start
+
+    wandb.log({"train_time_s": train_time})
+
+    return predictor
+
+
+def evaluate_autogluon(predictor, X_test: pd.DataFrame, y_test: pd.Series):
+    predictions = predictor.predict(X_test)
+    rmse = mean_squared_error(y_test, predictions, squared=False)
+
+    logger.info(f"AutoGluon RMSE: {rmse}")
+
+    # feature importance
+    try:
+        predictor.feature_importance(X_test)
+    except Exception:
+        logger.warning("Feature importance unavailable for some models.")
+
+    wandb.log({"rmse": rmse})
+
+    return {"rmse": float(rmse)}
+
+
+def save_best_model(predictor):
+    predictor.save("data/06_models/ag_production.pkl")
+    return "data/06_models/ag_production.pkl"
+
+
+def log_autogluon_artifact(predictor):
+    model_path = "data/06_models/ag_production.pkl"
+    predictor.save(model_path)
+
+    art = wandb.Artifact("ag_model", type="model")
+    art.add_file(model_path)
+
+    wandb.log_artifact(art, aliases=["candidate"])
+
+    return None

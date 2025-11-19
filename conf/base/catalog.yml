@@ -1,7 +1,4 @@
-# Here you can define all your datasets by using simple YAML syntax.
-#
-# Documentation for this file format can be found in "The Data Catalog"
-# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
 
 raw_data:
   type: kedro_datasets.pandas.csv_dataset.CSVDataset
@@ -34,3 +31,11 @@ model_baseline:
 metrics_baseline:
   type: kedro_datasets.tracking.metrics_dataset.MetricsDataset
   filepath: data/09_tracking/metrics_baseline.json
+
+ag_model:
+  type: pickle.PickleDataset
+  filepath: data/06_models/ag_production.pkl
+
+ag_metrics:
+  type: tracking.MetricsDataset
+  filepath: data/09_tracking/ag_metrics.json

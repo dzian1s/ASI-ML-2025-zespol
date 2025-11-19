@@ -5,3 +5,11 @@ split:
 model_opts:
   n_estimators: 100
   random_state: 42
+
+autogluon:
+  time_limit: 120
+  presets: "medium_quality_faster_train"
+  problem_type: "regression"
+  label: "price"
+  eval_metric: "rmse"
+  random_seed: 42
