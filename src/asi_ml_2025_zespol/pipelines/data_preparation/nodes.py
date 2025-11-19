@@ -1,3 +1,4 @@
+import random
 import time
 import pandas as pd
 import numpy as np
@@ -10,7 +11,6 @@ import yaml
 from pathlib import Path
 import logging
 from autogluon.tabular import TabularPredictor
-from autogluon.common.utils.utils import set_seed
 
 
 def load_raw():
@@ -81,7 +81,11 @@ logger = logging.getLogger(__name__)
 
 
 def train_autogluon(X_train, y_train, params):
-    set_seed(params["random_seed"])
+    seed = params["random_seed"]
+
+    # Set seeds
+    random.seed(seed)
+    np.random.seed(seed)
 
     run = wandb.init(
         project="asi-ml-2025-zespol", job_type="ag-train", reinit=True, config=params
@@ -111,7 +115,7 @@ def train_autogluon(X_train, y_train, params):
 
 def evaluate_autogluon(predictor, X_test: pd.DataFrame, y_test: pd.Series):
     predictions = predictor.predict(X_test)
-    rmse = mean_squared_error(y_test, predictions, squared=False)
+    rmse = np.sqrt(mean_squared_error(y_test, predictions))
 
     logger.info(f"AutoGluon RMSE: {rmse}")
 
