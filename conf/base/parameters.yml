@@ -8,8 +8,8 @@ model_opts:
 
 autogluon:
   time_limit: 120
-  presets: "medium_quality_faster_train"
+  presets: "best_quality"
   problem_type: "regression"
   label: "price"
   eval_metric: "rmse"
-  random_seed: 42
+  random_seed: 50
