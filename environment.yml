@@ -12,6 +12,7 @@ dependencies:
   - matplotlib
   - pip
   - pip:
+      - autogluon==1.4.0
       - pre-commit
       - ruff
       - black
