@@ -125,7 +125,8 @@ def evaluate_autogluon(predictor, X_test: pd.DataFrame, y_test: pd.Series):
     except Exception:
         logger.warning("Feature importance unavailable for some models.")
 
-    wandb.log({"rmse": rmse})
+    if wandb.run is not None:
+        wandb.log({"rmse": rmse})
 
     return {"rmse": float(rmse)}
 

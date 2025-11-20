@@ -2,7 +2,7 @@
 
 ## 1. Problem & Intended Use
 
-Model służy do **prognozowania ceny wynajmu mieszkań Airbnb w Nowym Jorku**.  
+Model służy do **prognozowania ceny wynajmu mieszkań Airbnb w Nowym Jorku**.
 Celem jest wsparcie gospodarzy (hostów Airbnb) w ustaleniu optymalnej ceny ofertowej
 na podstawie cech mieszkania, jego lokalizacji oraz popularności.
 
@@ -13,31 +13,31 @@ na podstawie cech mieszkania, jego lokalizacji oraz popularności.
 
 ## 2. Data (source, license, size, PII=no)
 
-**Source:**  
-New York City Airbnb Open Data  
+**Source:**
+New York City Airbnb Open Data
 (https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data)
 
-**License:**  
-CC0: Public Domain  
+**License:**
+CC0: Public Domain
 https://creativecommons.org/publicdomain/zero/1.0/
 
-**Dataset size:**  
-- ~49 000 ofert  
-- 16 kolumn  
+**Dataset size:**
+- ~49 000 ofert
+- 16 kolumn
 - po czyszczeniu: ~35 000 ofert
 
-**PII:**  
+**PII:**
 Dane nie zawierają danych osobowych (wszystkie identyfikatory hostów zostały usunięte podczas przetwarzania).
 
-**Features użyte w modelu:**  
-- neighbourhood_group  
-- neighbourhood  
-- room_type  
-- minimum_nights  
-- number_of_reviews  
-- reviews_per_month  
-- calculated_host_listings_count  
-- availability_365  
+**Features użyte w modelu:**
+- neighbourhood_group
+- neighbourhood
+- room_type
+- minimum_nights
+- number_of_reviews
+- reviews_per_month
+- calculated_host_listings_count
+- availability_365
 - (target) price
 
 ## 3. Metrics (main + secondary)
@@ -47,16 +47,16 @@ Dane nie zawierają danych osobowych (wszystkie identyfikatory hostów zostały 
 - random_state = 42
 - podział losowy (stratyfikacja nie była wymagana, bo target = price jest ciągły)
 
-**Główna metryka:**  
+**Główna metryka:**
 - **RMSE** (Root Mean Squared Error)
 
-**Wynik modelu produkcyjnego:**  
-- **RMSE (test split): 60.21**  
+**Wynik modelu produkcyjnego:**
+- **RMSE (test split): 60.21**
 (otrzymany przez najlepszy run AutoGluon)
 
-**Metryki pomocnicze:**  
-- czas trenowania: ~56 s  
-- czas predykcji modelu: ~3 ms / próbkę  
+**Metryki pomocnicze:**
+- czas trenowania: ~56 s
+- czas predykcji modelu: ~3 ms / próbkę
 - stabilność: różnica RMSE pomiędzy runami ~2-3 punkta
 
 ## 4. Limitations & Risks
@@ -64,7 +64,7 @@ Dane nie zawierają danych osobowych (wszystkie identyfikatory hostów zostały 
 ### Ograniczenia:
 - model trenowany wyłącznie na **danych z Nowego Jorku** – nie uogólnia się na inne miasta
 - brak informacji o dacie rezerwacji → model **nie uwzględnia sezonowości** cen
-- dane historyczne mogą być nieaktualne  
+- dane historyczne mogą być nieaktualne
 - model nie bierze pod uwagę:
   - jakości zdjęć
   - opinii tekstowych
@@ -95,24 +95,24 @@ Mitigacje:
 
 ## 6. Versioning (model + data + code)
 
-**W&B run (model produkcyjny):**  
+**W&B run (model produkcyjny):**
 https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-2025-zespol/runs/p4py0hol?nw=nwusers25282
 
-**Model artifact (production):**  
-`ag_model:production`  
+**Model artifact (production):**
+`ag_model:production`
 (alias: `production`)
 
-**Data artifact:**  
-`clean_data:v1`  
+**Data artifact:**
+`clean_data:v1`
 (wersja danych użytych do treningu)
 
-**Git commit:**  
+**Git commit:**
 `Commit 5ddbe24`
 SHA: 5ddbe24b322b970e5ae1c8dbdae0ed786cf3192b
 
-**Środowisko:**  
-- Python 3.11  
-- AutoGluon 1.x  
-- scikit-learn 1.5  
-- Kedro 1.0  
-- numpy, pandas  
+**Środowisko:**
+- Python 3.11
+- AutoGluon 1.x
+- scikit-learn 1.5
+- Kedro 1.0
+- numpy, pandas

@@ -4,7 +4,9 @@ import pytest
 from asi_ml_2025_zespol.pipelines.data_preparation.nodes import (
     basic_clean,
     train_test_splitting,
+    evaluate_autogluon,
 )
+import os
 
 
 @pytest.fixture
@@ -55,3 +57,29 @@ def test_train_test_split(sample_data):
     # brak przecieku danych
     overlap = pd.merge(X_train, X_test, how="inner")
     assert overlap.empty, "Zbiory train i test mają wspólne rekordy"
+
+
+def test_evaluate_autogluon_output():
+    # Fake predictor z metodą predict
+    class DummyPredictor:
+        def predict(self, X):
+            return np.zeros(len(X))
+
+    predictor = DummyPredictor()
+
+    X_test = pd.DataFrame({"a": [1, 2, 3]})
+    y_test = pd.Series([1, 2, 3])
+
+    metrics = evaluate_autogluon(predictor, X_test, y_test)
+
+    assert isinstance(metrics, dict)
+    assert "rmse" in metrics
+    # assert "train_time_s" in metrics
+
+    assert metrics["rmse"] >= 0
+
+
+def test_models_directory_exists():
+    assert os.path.exists(
+        "data/06_models"
+    ), "Folder data/06_models/ nie został utworzony!"
