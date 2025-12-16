@@ -20,6 +20,13 @@ https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-20
 ### Run
 https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-2025-zespol/runs/p4py0hol?nw=nwusers25282
 
+### Dla serwera
+
+uvicorn src.api.main:app --reload --port 8000
+
+http://127.0.0.1:8000/healthz
+http://127.0.0.1:8000/docs
+
 ### Kedro Quickstart
 Aby uruchomić projekt:
 
