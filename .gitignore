@@ -17,6 +17,8 @@ dist/
 *.env
 
 # Data (nie ładujemy pełbych danych, tylko małe próbki danych)
+AutogluonModels/
+!AutogluonModels/ag-20251119_185801/
 data/*
 !data/01_raw/
 !data/02_interim/
