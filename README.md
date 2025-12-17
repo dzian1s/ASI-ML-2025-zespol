@@ -28,9 +28,13 @@ uvicorn src.api.main:app --reload --port 8000
 http://127.0.0.1:8000/docs
 
 ### test health
+```bash
 curl http://127.0.0.1:8000/healthz
+```
+
 
 ### predykcja 
+```bash
 curl -X POST http://127.0.0.1:8000/predict \
      -H "Content-Type: application/json" \
      -d '{
@@ -45,6 +49,7 @@ curl -X POST http://127.0.0.1:8000/predict \
            "calculated_host_listings_count": 2,
            "availability_365": 210
          }'
+```
 
 ### Kedro Quickstart
 Aby uruchomić projekt:
@@ -59,3 +64,4 @@ kedro run
 - Autogluon 1.4.0
 - Kedro-Datasets 2.1.0
 - scikit-learn, pandas, numpy
+```
