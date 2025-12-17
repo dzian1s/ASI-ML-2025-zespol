@@ -4,6 +4,7 @@ import pandas as pd
 
 from src.api.model_loader import get_model
 from src.db.database import init_db
+from src.db.database import save_prediction
 
 app = FastAPI()
 
@@ -50,6 +51,13 @@ def predict(payload: Features):
     try:
         X = pd.DataFrame([payload.model_dump()])
         y_pred = predictor.predict(X)
+
+        save_prediction(
+            payload=payload.model_dump(),
+            prediction=y_pred,
+            model_version=model_version,
+        )
+
         return {"prediction": float(y_pred.iloc[0]), "model_version": model_version}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))

@@ -24,8 +24,27 @@ https://wandb.ai/s27335-polsko-japo-ska-akademia-technik-komputerowych/asi-ml-20
 
 uvicorn src.api.main:app --reload --port 8000
 
-http://127.0.0.1:8000/healthz
+### docs
 http://127.0.0.1:8000/docs
+
+### test health
+curl http://127.0.0.1:8000/healthz
+
+### predykcja 
+curl -X POST http://127.0.0.1:8000/predict \
+     -H "Content-Type: application/json" \
+     -d '{
+           "neighbourhood_group": 1,
+           "neighbourhood": 45,
+           "latitude": 40720000,
+           "longitude": -73990000,
+           "room_type": 2,
+           "minimum_nights": 3,
+           "number_of_reviews": 128,
+           "reviews_per_month": 1.35,
+           "calculated_host_listings_count": 2,
+           "availability_365": 210
+         }'
 
 ### Kedro Quickstart
 Aby uruchomić projekt:
