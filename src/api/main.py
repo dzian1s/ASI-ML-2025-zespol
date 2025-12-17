@@ -1,7 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+import pandas as pd
 
 from src.api.model_loader import get_model
+from src.db.database import init_db
 
 app = FastAPI()
 
@@ -33,6 +35,7 @@ model_version = "unknown"
 
 @app.on_event("startup")
 def startup():
+    init_db()
     global predictor, model_version
     predictor, model_version = get_model()
 

@@ -22,6 +22,10 @@ dependencies:
       - kedro-datasets[pandas,pickle,tracking]==2.1.0
       - pyarrow
       - pytest
-
-
-  - pyyaml
+      - pyyaml
+      - fastapi
+      - uvicorn
+      - sqlalchemy
+      - psycopg2
+      - pydantic
+      - pydantic-settings
