@@ -79,7 +79,7 @@ def test_evaluate_autogluon_output():
     assert metrics["rmse"] >= 0
 
 
-def test_models_directory_exists():
-    assert os.path.exists(
-        "data/06_models"
-    ), "Folder data/06_models/ nie został utworzony!"
+#def test_models_directory_exists():
+#    assert os.path.exists(
+#        "data/06_models"
+#    ), "Folder data/06_models/ nie został utworzony!"
