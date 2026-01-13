@@ -6,7 +6,7 @@ from autogluon.tabular import TabularPredictor
 _MODEL = None
 _MODEL_VERSION = None
 
-MODEL_DIR = Path("AutogluonModels/ag-20251119_185801")  # production
+MODEL_DIR = Path("data/06_models/ag-production")  # production
 
 
 def get_model() -> tuple[TabularPredictor, str]:

@@ -1,0 +1,10 @@
+uvicorn
+fastapi
+pydantic
+pydantic-settings
+joblib
+sqlalchemy
+psycopg2-binary
+autogluon==1.4.0
+pandas
+ipython

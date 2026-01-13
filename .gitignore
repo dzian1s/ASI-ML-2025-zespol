@@ -18,8 +18,8 @@ dist/
 *.env
 
 # Data (nie ładujemy pełbych danych, tylko małe próbki danych)
-AutogluonModels/
-!AutogluonModels/ag-20251119_185801/
+api/app/AutogluonModels/
+!api/app/AutogluonModels/ag-20251119_185801/
 data/*
 !data/01_raw/
 !data/02_interim/
@@ -28,8 +28,8 @@ data/**/.gitkeep
 data/**/README.md
 !asi-airbnb/data/01_raw/sample.csv
 asi-airbnb/data/01_raw/AB_NYC_2019.csv
-wandb/
-conf/local/credentials.yml
+api/app/wandb/
+api/app/conf/local/credentials.yml
 
 # jeśli ktoś pracuje na Macu
 .DS_Store
