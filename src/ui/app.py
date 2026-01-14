@@ -3,7 +3,7 @@ import requests
 import streamlit as st
 
 API_URL = os.getenv("API_URL", "http://localhost:8000")
-st.title("ML Demo – Prediction")
+st.title("New York Airbnb Prices")
 
 st.header("Input features")
 
@@ -59,12 +59,25 @@ if st.button("Predict"):
     }
 
     try:
-        r = requests.post(
-            f"{API_URL}/predict",
-            json=payload,
-            timeout=15,
-        )
-        st.write("Status:", r.status_code)
-        st.json(r.json())
+        with st.spinner("Liczę predykcję..."):
+            r = requests.post(
+                f"{API_URL}/predict",
+                json=payload,
+                timeout=15,
+            )
+            r.raise_for_status()
+
+            result = r.json()
+            st.success("Predykcja wykonana pomyślnie")
+
+            if "prediction" in result:
+                st.metric(
+                    label="Wynik predykcji",
+                    value=f"{result['prediction']}"
+                )
+            else:
+                st.json(result)
+    except requests.exceptions.Timeout:
+        st.error("Przekroczono czas oczekiwania na API")
     except requests.exceptions.RequestException as e:
         st.error(f"Request failed: {e}")

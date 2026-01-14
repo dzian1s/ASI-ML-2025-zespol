@@ -15,6 +15,7 @@ dist/
 # Envs / secrets
 .env
 .env.*
+!.env.example
 *.env
 
 # Data (nie ładujemy pełbych danych, tylko małe próbki danych)
