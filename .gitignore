@@ -6,7 +6,6 @@ __pycache__/
 *.egg-info/
 .build/
 dist/
-../.idea
 .idea
 
 # Jupyter
@@ -25,6 +24,7 @@ data/*
 !data/01_raw/
 !data/02_interim/
 !data/03_processed/
+!data/06_models/
 data/**/.gitkeep
 data/**/README.md
 !asi-airbnb/data/01_raw/sample.csv
