@@ -65,3 +65,19 @@ kedro run
 - Kedro-Datasets 2.1.0
 - scikit-learn, pandas, numpy
 ```
+
+## Docker quickstart
+
+```bash
+docker compose up --build
+
+# API:
+curl http://localhost:8000/healthz
+curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" \
+     -d '{"feature_num":2.9, "feature_cat":"B"}'
+
+# UI:
+open http://localhost:8501
+
+# DB (psql):
+docker compose exec db psql -U app -d appdb -c "select * from predictions limit 5;"
