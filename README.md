@@ -82,6 +82,6 @@ open http://localhost:8501
 docker compose exec db psql -U app -d appdb -c "select * from predictions limit 5;"
 ```
 PORTS:     
-DB: 5432
-API: 8000
-UI: 8501
+DB: 5432     
+API: 8000     
+UI: 8501     
