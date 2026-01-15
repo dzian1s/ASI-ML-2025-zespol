@@ -73,11 +73,15 @@ docker compose up --build
 
 # API:
 curl http://localhost:8000/healthz
-curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" \
-     -d '{"feature_num":2.9, "feature_cat":"B"}'
+curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"neighbourhood_group": 1,"neighbourhood": 45,"latitude": 40720000, "longitude": -73990000,"room_type": 2,"minimum_nights": 3,"number_of_reviews": 128,"reviews_per_month": 1.35,"calculated_host_listings_count": 2,"availability_365": 210}'
 
 # UI:
 open http://localhost:8501
 
 # DB (psql):
 docker compose exec db psql -U app -d appdb -c "select * from predictions limit 5;"
+```
+PORTS:
+DB: 5432
+API: 8000
+UI: 8501
